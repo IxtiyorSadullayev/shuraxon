@@ -1,0 +1,20 @@
+{
+  "name": "shuraxon",
+  "version": "1.0.0",
+  "description": "Sho`raxon un map rejasi backend qismi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IxtiyorSadullayev/shuraxon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IxtiyorSadullayev/shuraxon/issues"
+  },
+  "homepage": "https://github.com/IxtiyorSadullayev/shuraxon#readme"
+}
