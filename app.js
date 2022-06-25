@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const crypto = require('crypto')
 const multer = require('multer')
+const cors = require('cors')
 const app = express();
 
 
@@ -31,7 +32,7 @@ dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use('/images', express.static('images'))
-
+app.use(cors())
 mongoose.connect(process.env.DB_URL)
     .then(() => console.log(`Bazaga ulanildi.`))
     .catch(e => console.log(`Bazaga bo'lanishda hatolik mavjud`))
