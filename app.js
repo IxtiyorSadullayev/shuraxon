@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const crypto = require('crypto')
+const multer = require('multer')
 const app = express();
 
 
