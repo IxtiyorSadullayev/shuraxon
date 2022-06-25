@@ -30,11 +30,14 @@ app.use(multer({storage:fileStorage,fileFilter:fileFilter}).single("image"))
 dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-
+app.use('/images', express.static('images'))
 
 mongoose.connect(process.env.DB_URL)
     .then(() => console.log(`Bazaga ulanildi.`))
     .catch(e => console.log(`Bazaga bo'lanishda hatolik mavjud`))
+
+app.use('/api/', require('./routes/obekt'))
+app.use('/api/', require('./routes/tur.routes'))
 
 
 
@@ -46,7 +49,7 @@ app.use((req,res,next) =>{
 app.use((err, req,res,next) =>{
     res.status(500).json({
         success: false,
-        message: err.message
+        error: err.message
     })
 })
 

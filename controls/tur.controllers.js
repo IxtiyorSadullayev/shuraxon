@@ -19,8 +19,9 @@ exports.getallturs = async(req,res) =>{
 exports.postturs = async(req,res) =>{
     try {
         const {name} = req.body;
-        const newtur = await Tur.create(name);
+        const newtur = new Tur({name})
 
+        await newtur.save();
         return res.status(201).json({
             success: true,
             data: newtur

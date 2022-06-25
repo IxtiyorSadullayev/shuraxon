@@ -1,9 +1,9 @@
-const Obekt = require('./../models/obekt')
+const Obektcha = require('./../models/obekt')
 
 
 exports.getallobekts = async(req,res) =>{
     try {
-        const obekts = await Obekt.find();
+        const obekts = await Obektcha.find();
         return res.status(200).json({
             success: true,
             data: obekts
@@ -23,7 +23,8 @@ exports.postobekts = async(req,res) =>{
         let lat = map.split(',')[0]
         let long = map.split(',')[1]
         let imgurl = req.file.path;
-        const newobekt = await Obekt({name, description, imgurl, lat, long, tur})
+        const newobekt = new Obektcha({name, description, imgurl, lat, long, tur})
+        await newobekt.save();
 
         return res.status(201).json({
             success: true, 
@@ -43,7 +44,7 @@ exports.postobekts = async(req,res) =>{
 exports.delobekts = async(req,res) =>{
     try {
         const _id = req.params.id;
-        const delid = await Obekt.findByIdAndDelete({_id})
+        const delid = await Obektcha.findByIdAndDelete({_id})
         return res.status(200).json({
             success: true,
             data: delid
@@ -59,7 +60,7 @@ exports.delobekts = async(req,res) =>{
 exports.getoneobekts = async(req,res) =>{
     try {
         const _id = req.params.id;
-        const oneid = await Obekt.findById({_id})       
+        const oneid = await Obektcha.findById({_id})       
         return res.status(200).json({
             success: true,
             data: oneid
