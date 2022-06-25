@@ -33,7 +33,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use('/images', express.static('images'))
 app.use(cors())
-mongoose.connect(process.env.DB_URL)
+mongoose.connect('mongodb+srv://ixtiyor99:ixtiyor99@cluster0.mpzth.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log(`Bazaga ulanildi.`))
     .catch(e => console.log(`Bazaga bo'lanishda hatolik mavjud`))
 
